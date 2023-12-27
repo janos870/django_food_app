@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'food',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,24 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# STATIC_ROOT  = (BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [ BASE_DIR / "static"]
+
+import os
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
+
+MADIA_URL = ('/pictures/')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "food:index"
+
+LOGIN_URL = "login"
+
+# LOGOUT_URL = "food:index"
+

@@ -1,7 +1,20 @@
-{% for item in item_list %}
-    <ul>
-        <li>
-            {{ item.id }} -- {{ item.item_name }}
-        </li>
-    </ul>
-{% endfor %}
+{% extends 'food/base.html' %}
+
+{% block body %}
+  {% for item in item_list %}
+    <div class="row m-2">
+      <div class="col-md-3 offset-md-2">
+        <img src="{{ item.item_image }}" width="250" alt="food" />
+      </div>
+      <div class="col-md-4">
+        <h3>{{ item.item_name }}</h3>
+        <h5>{{ item.item_desc }}</h5>
+        <h6>${{ item.item_price }}</h6>
+        <h6>{{ item.user_name.username }}</h6>
+      </div>
+      <div class="col-md-2">
+        <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

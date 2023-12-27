@@ -1,0 +1,15 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h2 class="display-4">You have been successfully logged out.</h2>
+      <p class="lead">
+        If you want to log in again, click <a href="{% url 'login' %}">here</a>.
+      </p>
+      <p class="lead">
+        If you don't have an account yet, you can register <a href="{% url 'register' %}">here</a>.
+      </p>
+    </div>
+  </div>
+{% endblock %}
